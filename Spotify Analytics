@@ -28,18 +28,10 @@ time_signature integer NOT NULL
 
 #Next, I explored the data using the following SQL. 
 
-#First I determined the avg popularity, danceability, and energy by artist and track. 
-SELECT
-artist_name
-,track_name
-,avg(popularity)
-,avg(danceability)
-,avg(energy)
-FROM BIT_DB.spotifydata
-GROUP BY artist_name, track_name
+--Artist names that start with the letter 'B':
 
-#Then I determined who the Top 10 artists are by popularity
-SELECT track_name, artist_name, popularity
-FROM BIT_DB.spotifydata
-ORDER BY popularity desc
-LIMIT 10
+SELECT id, artist_name, track_name FROM BIT_DB.Spotifydata WHERE artist_name LIKE 'B%' GROUP BY artist_name;
+
+-- Lowest Ranked Songs By Popularity 
+
+SELECT artist_name, track_name, popularity FROM BIT_DB.Spotifydata ORDER BY popularity asc;
